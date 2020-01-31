@@ -38,6 +38,14 @@ fun main(args: Array<String>) {
 //        human.sing()
 //    }
 
-    var doge: Doge = Doge();
-    doge.run()
+//    var doge: Doge = Doge();
+//    doge.run()
+
+    var son = BigHeadSon()
+    var father = SmallHeadFather()
+    son.washing()
+    father.washing()
+
+
 }
+

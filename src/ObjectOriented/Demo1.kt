@@ -47,7 +47,7 @@ fun main(args: Array<String>) {
 //    father.washing()
 
 
-    println(Week.Friday)
+    println(Week.Friday.ordinal)
 
 }
 

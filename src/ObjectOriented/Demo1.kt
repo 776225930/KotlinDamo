@@ -30,13 +30,14 @@ fun main(args: Array<String>) {
     var woman: Woman = Woman("慈禧")
 //    woman.eat()
 
-    var person1 = Man("Jack");
-    var person2 = Man("Tony");
-    var person3 = Woman("Rose");
+//    var person1 = Man("Jack");
+//    var person2 = Man("Tony");
+//    var person3 = Woman("Rose");
+//    val humans = listOf<Human>(person1, person2, person3)
+//    for (human in humans) {
+//        human.sing()
+//    }
 
-    val humans = listOf<Human>(person1, person2, person3)
-
-    for (human in humans) {
-        human.sing()
-    }
+    var doge: Doge = Doge();
+    doge.run()
 }

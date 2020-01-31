@@ -88,7 +88,8 @@ fun main(array: Array<String>) {
 //    b = c.toInt();//错误
 
 
-    //演示递归  阶乘
+//演示递归  阶乘
+
     fun fact(num: Int): Int {
         if (num == 1) {
             return 1;
@@ -96,7 +97,8 @@ fun main(array: Array<String>) {
             return num * fact(num - 1)
         }
     }
-//    println(fact(5))
+
+    //    println(fact(5))
     //数字太大时用BigInteger
     fun fact1(num: BigInteger): BigInteger {
         if (num == BigInteger.ONE) {
@@ -105,9 +107,35 @@ fun main(array: Array<String>) {
             return num * fact1(num - BigInteger.ONE)
         }
     }
+
     var num = BigInteger("100");
 //    println(fact1(num))
 
+//尾递归优化
+
+    //累加
+    fun ollAdd(num: Int): Int {
+        println("第${num}次运算")
+        if (num == 1) {
+            return 1
+        } else {
+            return num * ollAdd(num - 1)
+        }
+    }
+
+//        println(ollAdd(10000))//java.lang.StackOverflowError
+    //尾递归优化后
+    tailrec fun ollAdd1(num: Int, result: Int): Int {
+        println("第${num}次运算,result=${result}")
+        if (num == 1) {
+            return 1
+        } else {
+            return ollAdd1(num - 1, result + num)
+        }
+    }
+
+    var result1 = 0;
+//    println(ollAdd1(10000, result1))
 
 }
 

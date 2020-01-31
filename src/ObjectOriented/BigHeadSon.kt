@@ -5,7 +5,7 @@ package ObjectOriented
  * @author JiangHao
  * @describe
  */
-class BigHeadSon : IWashBowl {
+object BigHeadSon : IWashBowl {
     override fun washing() {
         println("大头儿子洗碗...一次赚1块")
     }

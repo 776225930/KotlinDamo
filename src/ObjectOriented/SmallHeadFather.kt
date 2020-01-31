@@ -5,11 +5,11 @@ package ObjectOriented
  * @author JiangHao
  * @describe
  */
-class SmallHeadFather : IWashBowl by BigHeadSon() {
+class SmallHeadFather : IWashBowl by BigHeadSon {
 
-//    override fun washing() {
-//        println("小头爸爸洗碗...")
-//        BigHeadSon().washing()
-//        println("儿子把碗洗好了...")
-//    }
+    override fun washing() {
+        println("小头爸爸洗碗...")
+        BigHeadSon.washing()
+        println("儿子把碗洗好了...")
+    }
 }

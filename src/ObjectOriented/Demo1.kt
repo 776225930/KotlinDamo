@@ -41,7 +41,7 @@ fun main(args: Array<String>) {
 //    var doge: Doge = Doge();
 //    doge.run()
 
-    var son = BigHeadSon()
+    var son = BigHeadSon
     var father = SmallHeadFather()
     son.washing()
     father.washing()

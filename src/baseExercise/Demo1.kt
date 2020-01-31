@@ -116,7 +116,7 @@ fun main(array: Array<String>) {
     //累加
     fun ollAdd(num: Int): Int {
         println("第${num}次运算")
-        if (num == 1) {
+        if (num == 0) {
             return 1
         } else {
             return num * ollAdd(num - 1)
@@ -127,7 +127,7 @@ fun main(array: Array<String>) {
     //尾递归优化后
     tailrec fun ollAdd1(num: Int, result: Int): Int {
         println("第${num}次运算,result=${result}")
-        if (num == 1) {
+        if (num == 0) {
             return 1
         } else {
             return ollAdd1(num - 1, result + num)

@@ -55,11 +55,38 @@ fun main(args: Array<String>) {
         }
     }
     for (girl in someOne) {
-//        println("${girl.name}的年龄是 ${girl.age} 身高为 ${girl.height} 体重为 ${girl.weight}")
+        println("${girl.name}的年龄是 ${girl.age} 身高为 ${girl.height} 体重为 ${girl.weight}")
     }
 
-    println(list.maxBy { it.height })
-    println(list.minBy { it.height })
+//    println(list.maxBy { it.height })
+//    println(list.minBy { it.height })
+    //使用kotlin的filter进行条件筛选
+//    println(list.filter {
+//        (it.age > 20) and (it.height > 160)
+//    })
 
+    //map
+    val result = list.map {
+        "${it.name}:${it.height}"
+    }
+//    println(result)
 
+    //any:是否有满足某个条件的元素
+    println(list.any {
+        it.age == 17
+    })
+    //count:统计满足条件的元素的个数
+    println(list.count {
+        it.age > 18
+    })
+    //find:查找符合条件的元素，返回第一个
+    println(someOne.findLast {
+        it.height > 160
+    })
+    //groupBy:按条件分组
+    val groupBy = list.groupBy {
+        it.height
+//        it.height > 160
+    }.get(170)?.forEach { println(it) }
+//    println(groupBy)
 }

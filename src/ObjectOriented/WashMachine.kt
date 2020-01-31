@@ -61,7 +61,7 @@ class WashMachine(var module: String, var size: Int) {
         }
     }
 
-    fun setMotorSpeed(speed: Int) {
+    private fun setMotorSpeed(speed: Int) {
         println("当前发动机转速为 ${speed}圈/秒")
     }
 }

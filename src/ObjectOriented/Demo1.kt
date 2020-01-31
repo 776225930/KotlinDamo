@@ -14,10 +14,14 @@ fun main(args: Array<String>) {
     var boy: Boy = Boy("呵呵", "哈哈")
 //    println("a boy ${boy.eat()},${boy.play()},${boy.code()}")
     var washMachine: WashMachine = WashMachine("小天鹅", 12)
-    washMachine.openDoor()
-    washMachine.closeDoor()
-    washMachine.select(2)
-    washMachine.startWash()
-    
-    washMachine.setMotorSpeed(1000)
+//    washMachine.openDoor()
+//    washMachine.closeDoor()
+//    washMachine.select(2)
+//    washMachine.startWash()
+
+//    washMachine.setMotorSpeed(1000)
+
+    var son: Son = Son();
+    println("儿子：${son.character}")
+    son.action()
 }

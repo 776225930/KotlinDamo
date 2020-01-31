@@ -65,7 +65,7 @@ fun main(args: Array<String>) {
 //        (it.age > 20) and (it.height > 160)
 //    })
 
-    //map
+    //map:把元素的某个属性映射成新的集合
     val result = list.map {
         "${it.name}:${it.height}"
     }
@@ -89,4 +89,19 @@ fun main(args: Array<String>) {
 //        it.height > 160
     }.get(170)?.forEach { println(it) }
 //    println(groupBy)
+
+
+//DSL
+
+    //扩展函数  通配表达式
+    infix fun List<Girl>.searchSomeOneWhichAgeBelow20(age: Int) {
+        filter {
+            it.age < age
+        }.forEach(::println)
+    }
+    println("=======")
+//    list.searchSomeOneWhichAgeBelow20(20)
+    //使用统配表达式之后
+    list searchSomeOneWhichAgeBelow20 20
+
 }

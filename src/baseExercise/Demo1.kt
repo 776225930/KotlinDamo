@@ -75,6 +75,17 @@ fun main(array: Array<String>) {
     println(getCircleLength(radius = 3.14f, PI = 2f));
     println(getCircleLength(radius = 2f));
 
+
+//字符串和数字之间的转换
+
+    var a = "13"
+    var b = 13
+    a = b.toString()
+    b = a.toInt();
+
+    var c = "a3"
+    b = c.toInt();//错误
+
 }
 
 

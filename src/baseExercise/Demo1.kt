@@ -39,6 +39,25 @@ fun main(array: Array<String>) {
     map["天"] = "Day"
     map["向上"] = "Up"
 
-    println(map["好"] + map["好"] + map["学习"])
+//    println(map["好"] + map["好"] + map["学习"])
+
+
+//函数和函数式
+
+    fun add(x: Int, y: Int): Int {
+        return x + y;
+    }
+
+    //1.如果函数体只有一行:
+    fun add1(x: Int, y: Int): Int = x + y
+//    println(add1(3,7))
+    //2.把函数表达式赋给变量
+    var i = { x: Int, y: Int -> x + y }
+//    println(i(1, 7))
+    //3.声明时指明类型
+    var j: (x: Int, y: Int) -> Int = { x, y -> x + y }
+//    println(j(2,4))
+
 }
+
 

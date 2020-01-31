@@ -21,7 +21,13 @@ fun main(args: Array<String>) {
 
 //    washMachine.setMotorSpeed(1000)
 
-    var son: Son = Son();
-    println("儿子：${son.character}")
-    son.action()
+//    var son: Son = Son();
+//    println("儿子：${son.character}")
+//    son.action()
+
+    var man: Man = Man("金三胖")
+    man.eat()
+    var woman: Woman = Woman("慈禧")
+    woman.eat()
+
 }

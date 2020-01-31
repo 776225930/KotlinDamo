@@ -49,17 +49,38 @@ fun main(args: Array<String>) {
 
 //    println(Week.Friday.ordinal)
 
-    fun test(): () -> Unit {
-        var i = 3;
-        return fun() {
-            i++
-            println(i)
-        }
-    }
+//闭包
 
-    var t = test()
-    t()
-    t()
-    t()
+//    fun test(): () -> Unit {
+//        var i = 3;
+//        return fun() {
+//            i++
+//            println(i)
+//        }
+//    }
+//    var t = test()
+//    t()
+//    t()
+//    t()
+
+//函数式编程
+    var names = listOf<String>("Tom", "Jerry", "Tony")
+    var print = fun(name: String) {
+        println(name)
+    }
+    names.forEach {
+        print(it)//it为默认起的参数名
+    }
+    names.forEach { a ->
+        //设定函数参数名
+        println("-->" + a)//函数体
+    }
+    //接收一个类型为(String)->Unit(函数类型 参数为字符串 返回值为 Unit)的参数
+//    names.forEach(print)
+    //等价于:
+//    for (name in names) {
+//        println(name)
+//    }
+
 }
 

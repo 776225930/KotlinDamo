@@ -26,8 +26,17 @@ fun main(args: Array<String>) {
 //    son.action()
 
     var man: Man = Man("金三胖")
-    man.eat()
+//    man.eat()
     var woman: Woman = Woman("慈禧")
-    woman.eat()
+//    woman.eat()
 
+    var person1 = Man("Jack");
+    var person2 = Man("Tony");
+    var person3 = Woman("Rose");
+
+    val humans = listOf<Human>(person1, person2, person3)
+
+    for (human in humans) {
+        human.sing()
+    }
 }

@@ -6,6 +6,10 @@ package ObjectOriented
  * @describe
  */
 class Man(name: String) : Human(name) {
+    override fun sing() {
+        println("can ont")
+    }
+
     override fun eat() {
         println("Man ${name}吃饭")
     }

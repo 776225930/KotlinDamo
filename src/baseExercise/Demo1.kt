@@ -84,7 +84,7 @@ fun main(array: Array<String>) {
     b = a.toInt();
 
     var c = "a3"
-    b = c.toInt();//错误
+//    b = c.toInt();//错误
 
 }
 

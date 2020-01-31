@@ -1,5 +1,6 @@
 package ObjectOriented
 
+import javafx.scene.text.FontWeight
 import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
@@ -10,6 +11,8 @@ import javax.imageio.ImageIO
  * @describe
  */
 fun main(args: Array<String>) {
+
+//图片处理
     //内存中创建一个宽和高为100的图片
     var image = BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB)
     var w = 0..99
@@ -23,4 +26,40 @@ fun main(args: Array<String>) {
         }
     }
     ImageIO.write(image, "bmp", File("b.bmp"))
+
+    //高阶函数
+    //不需要自己动手去写一个 JavaBean，可以直接使用 DataClass编译器会默默地帮我们生成以下函数
+    data class Girl(var name: String, var age: Int, var height: Int, var weight: Int)
+
+    var list = listOf<Girl>(
+            Girl("Rose", 20, 160, 110),
+            Girl("Lucy", 21, 162, 100),
+            Girl("Nacy", 18, 165, 102),
+            Girl("Joe", 19, 167, 108),
+            Girl("Aria", 24, 169, 98),
+            Girl("Marry", 28, 172, 110),
+            Girl("Jane", 19, 156, 90),
+            Girl("Jeans", 25, 162, 100),
+            Girl("Kate", 21, 154, 91),
+            Girl("Clare", 25, 172, 102),
+            Girl("Clark", 26, 175, 106),
+            Girl("XX", 33, 177, 110),
+            Girl("YY", 32, 166, 100),
+            Girl("ZZ", 31, 168, 106)
+    )
+    var someOne = ArrayList<Girl>()
+    //传统条件赛筛选
+    for (girl in list) {
+        if (20 < girl.age && girl.age < 30) {
+            someOne.add(girl)
+        }
+    }
+    for (girl in someOne) {
+//        println("${girl.name}的年龄是 ${girl.age} 身高为 ${girl.height} 体重为 ${girl.weight}")
+    }
+
+    println(list.maxBy { it.height })
+    println(list.minBy { it.height })
+
+
 }

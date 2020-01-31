@@ -1,5 +1,6 @@
 package baseExercise
 
+import java.lang.Math.PI
 import java.util.*
 
 /**
@@ -57,6 +58,22 @@ fun main(array: Array<String>) {
     //3.声明时指明类型
     var j: (x: Int, y: Int) -> Int = { x, y -> x + y }
 //    println(j(2,4))
+
+
+// 具名参数和默认参数
+
+    val Pi = 3.14159f;
+    //计算长方形面积
+    fun getRectArea(width: Int, length: Int): Int {
+        return width * length;
+    }
+
+    fun getCircleLength(PI: Float = Pi, radius: Float): Float {
+        return 2 * PI * radius;
+    }
+    println(getCircleLength(3.14f, 2f));
+    println(getCircleLength(radius = 3.14f, PI = 2f));
+    println(getCircleLength(radius = 2f));
 
 }
 

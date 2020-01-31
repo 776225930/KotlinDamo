@@ -47,7 +47,19 @@ fun main(args: Array<String>) {
 //    father.washing()
 
 
-    println(Week.Friday.ordinal)
+//    println(Week.Friday.ordinal)
 
+    fun test(): () -> Unit {
+        var i = 3;
+        return fun() {
+            i++
+            println(i)
+        }
+    }
+
+    var t = test()
+    t()
+    t()
+    t()
 }
 

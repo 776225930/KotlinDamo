@@ -1,6 +1,7 @@
 package baseExercise
 
 import java.lang.Math.PI
+import java.math.BigInteger
 import java.util.*
 
 /**
@@ -71,9 +72,9 @@ fun main(array: Array<String>) {
     fun getCircleLength(PI: Float = Pi, radius: Float): Float {
         return 2 * PI * radius;
     }
-    println(getCircleLength(3.14f, 2f));
-    println(getCircleLength(radius = 3.14f, PI = 2f));
-    println(getCircleLength(radius = 2f));
+//    println(getCircleLength(3.14f, 2f));
+//    println(getCircleLength(radius = 3.14f, PI = 2f));
+//    println(getCircleLength(radius = 2f));
 
 
 //字符串和数字之间的转换
@@ -86,6 +87,29 @@ fun main(array: Array<String>) {
     var c = "a3"
 //    b = c.toInt();//错误
 
+
+    //演示递归  阶乘
+    fun fact(num: Int): Int {
+        if (num == 1) {
+            return 1;
+        } else {
+            return num * fact(num - 1)
+        }
+    }
+//    println(fact(5))
+    //数字太大时用BigInteger
+    fun fact1(num: BigInteger): BigInteger {
+        if (num == BigInteger.ONE) {
+            return BigInteger.ONE;
+        } else {
+            return num * fact1(num - BigInteger.ONE)
+        }
+    }
+    var num = BigInteger("100");
+//    println(fact1(num))
+
+
 }
+
 
 

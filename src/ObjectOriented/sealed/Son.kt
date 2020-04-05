@@ -9,7 +9,7 @@ package ObjectOriented.sealed
 sealed class Son {
 
     fun sayHello() {
-        println("大家好！")
+        println("大家好！" + this.javaClass.simpleName)
     }
 
     class 小小驴() : Son()

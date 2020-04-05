@@ -15,25 +15,26 @@ fun main(array: Array<String>) {
     for (num in nums) {
         result = result + num;
     }
-    //println("结果是${result}")
-    var nums1 = 1 until 100 //[1,100)
+//    println("结果是${result}")
+    var nums1 = 1 until 100 //[1,100)左闭右开
     for (num in nums1 step 2) {
-        //    println("->"+num)
+//            println("->"+num)
     }
     var nums2 = nums1.reversed();//翻转
     //println("元素个数为" + nums2.count())
     for (num in nums2 step 2) {
-        //  println(num)
+//          println(num)
     }
 //List
     var lists = listOf("包子", "面条", "披萨", "汉堡")
     for (list in lists) {
-//        println(list)
-    }
-    for ((i, e) in lists.withIndex()) {
-//        println("${i}--${e}")
+        println(list)
     }
 
+    for ((i, e) in lists.withIndex()) {
+        println("${i}--${e}")
+    }
+    val array = arrayOf("1", "2", "3");
 //Map
     var map = TreeMap<String, String>();
     map["好"] = "Good"
@@ -44,14 +45,16 @@ fun main(array: Array<String>) {
 //    println(map["好"] + map["好"] + map["学习"])
 
 
-//函数和函数式
-
+    //函数和函数式,区块体
     fun add(x: Int, y: Int): Int {
         return x + y;
     }
 
-    //1.如果函数体只有一行:
+    //1.如果函数体只有一行,表达式体
     fun add1(x: Int, y: Int): Int = x + y
+
+    //省略表达式返回值类型也是可以的
+    fun add2(x: Int, y: Int) = x + y
 //    println(add1(3,7))
     //2.把函数表达式赋给变量
     var i = { x: Int, y: Int -> x + y }
@@ -123,7 +126,7 @@ fun main(array: Array<String>) {
         }
     }
 
-//        println(ollAdd(10000))//java.lang.StackOverflowError
+    //        println(ollAdd(10000))//java.lang.StackOverflowError
     //尾递归优化后
     tailrec fun ollAdd1(num: Int, result: Int): Int {
         println("第${num}次运算,result=${result}")

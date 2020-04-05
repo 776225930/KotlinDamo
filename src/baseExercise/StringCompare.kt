@@ -12,5 +12,6 @@ fun main(array: Array<String>) {
     println(str1 == str2)//区分大小写
     println(str1.equals(str2))//区分大小写
 
-    println(str1.equals(str2,true));//忽略大小写
+    println(str1.equals(str2, true));//忽略大小写
+    print(str1.equals(str2, false))
 }

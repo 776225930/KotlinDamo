@@ -1,5 +1,6 @@
 package ObjectOriented
 
+import jdk.nashorn.internal.ir.annotations.Ignore
 import java.io.BufferedReader
 import java.util.*
 
@@ -119,7 +120,41 @@ fun main(args: Array<String>): Unit {
     fun(x: Int, y: Int) = x + y
     //匿名函数的调用
     (fun(x: Int, y: Int) = x + y)(11, 23);
+
+
+    /**
+     * 字符串
+     */
+
+    /**
+     * split：
+     * String[] arr ="www.baidu.com".split(".")在Java中得到的结果长度为.,因为split接收的是一个正则表达式字符串,
+     * 而字符 . 在正则中表示所有字符串
+     * 为了避免开发开发者的困惑，Kotlin 对 CharSequence 扩展了 split 函数
+     * 如果你想通过字符串来分割
+     */
+    println("www.baidu.com".split("."))
+    println("www.baidu.com".split("a".toRegex()))
+
+    /**
+     * 三引号字符串：不需要对任何字符串转义，包括反斜杠,三引号字符串还可以包含任意字符串，包括换行
+     * 假如我们需要对如下字符串，分割成 路径、文件名和后缀：
+     *“/Users/chiclaim/kotlin-book/kotlin-in-action.doc”
+     * 可以看出 (.+)/(.+)\.(.+) 我们使用了两个反斜杠
+     * 不用反斜杠的话字符 . 表示任意字符，所以需要用反斜杠转义(escape)
+     * 这个时候可以使用三引号字符串，这样就不要只需要一个反斜杠
+     * val regex = """(.+)/(.+)\.(.+)""".toRegex()
+     */
+    fun parsePathRegexp(path: String) {
+        val regex = "(.+)/(.+)\\.(.+)".toRegex()
+        val matchResult = regex.matchEntire(path)
+        if (matchResult != null) {
+            val (directory, filename, extension) = matchResult.destructured
+            println("Dir: $directory, name: $filename, ext: $extension")
+        }
+    }
 }
+
 
 class User(var name: String, var address: String) {
 

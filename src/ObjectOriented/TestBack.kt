@@ -62,11 +62,25 @@ fun main(args: Array<String>): Unit {
 
     /**
      * 展开操作符 *
+     * 不使用 展开操作符 asLis会直接把整个函数当成Object对象
      */
     val intArray: Array<Int> = arrayOf(1, 2, 3, 4, 5)
 
-    println(Arrays.asList(0, intArray))//
-    println(Arrays.asList(0, *intArray))//
+    println(Arrays.asList(0, intArray))//[0, [Ljava.lang.Integer;@5caf905d]
+    println(Arrays.asList(0, 3, *intArray))//[0, 1, 2, 3, 4, 5]
+
+    /**
+     *  中缀调用
+    我们都知道什么是前缀(prefix)，后缀(suffix)。那什么是函数的中缀(infix)调用呢？
+    使用关键字 infix 修饰的函数都能够 中缀调用
+    被关键字 infix 修饰的函数只能有一个参数
+    Kotlin 中的 to 就是一个中缀函数：
+     */
+    val to = 1 to "one"
+    println(to);
+    val to1 = 1.to("two")
+    println(to1.javaClass);
+    println(to1);
 }
 
 

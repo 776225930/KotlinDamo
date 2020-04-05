@@ -75,14 +75,55 @@ fun main(args: Array<String>): Unit {
     使用关键字 infix 修饰的函数都能够 中缀调用
     被关键字 infix 修饰的函数只能有一个参数
     Kotlin 中的 to 就是一个中缀函数：
+    除了 to 函数，还有 until、downTo、step 也是中缀函数
      */
+    //kotlin.Pair
     val to = 1 to "one"
     println(to);
     val to1 = 1.to("two")
     println(to1.javaClass);
     println(to1);
+
+    /**
+     * 本地函数：是在函数里面定义函数，本地函数只能在函数内部使用
+     */
+    fun saveUser(user: User) {
+        if (user.name.isEmpty()) {
+            throw IllegalArgumentException("Cannot save user ${user.name}: Name is empty")
+        }
+        if (user.address.isEmpty()) {
+            throw IllegalArgumentException("Cannot save user ${user.name}: Address is empty")
+        }
+        // Save user to the database
+    }
+
+    // saveUser 函数里面有些重复逻辑，如果 name 或 address 为空都会抛出异常
+    fun saveUser1(user: User) {
+        //本地函数,抽取重复的代码
+        fun validate(value: String, fieldName: String) {
+            if (value.isEmpty()) {
+                throw IllegalArgumentException("Cannot save user ${user.name}: $fieldName is empty")
+            }
+        }
+        validate(user.name, "name");
+        validate(user.address, "address");
+    }
+
+    /**
+     * 匿名函数
+     */
+    fun(x: Int, y: Int): Int { return x + y }
+
+    fun(x: Int, y: Int): Int = x + y
+
+    fun(x: Int, y: Int) = x + y
+    //匿名函数的调用
+    (fun(x: Int, y: Int) = x + y)(11, 23);
 }
 
+class User(var name: String, var address: String) {
+
+}
 
 /**
  * 类型判断 is

@@ -1,7 +1,7 @@
 package ObjectOriented
 
-import com.sun.org.apache.xerces.internal.impl.dv.xs.IntegerDV
 import java.io.BufferedReader
+import java.util.*
 
 /**
  * @date   2020/4/5
@@ -60,17 +60,19 @@ fun main(args: Array<String>): Unit {
     println(str.lastChar)
     println(str.lastChar1)
 
+    /**
+     * 展开操作符 *
+     */
+    val intArray: Array<Int> = arrayOf(1, 2, 3, 4, 5)
 
+    println(Arrays.asList(0, intArray))//
+    println(Arrays.asList(0, *intArray))//
 }
 
-/**
- * 扩展属性(必须在类中)
- * 必须为这个扩展属性定义 getter 函数，因为扩展属性没有 backing field
- * 扩展属性在定义的时候，也会生成静态方法：
- */
-val String.lastChar: Char get() = this.get(length - 1)
-val String.lastChar1: Char get() = 'g'
 
+/**
+ * 类型判断 is
+ */
 fun testIs(obj: Any) {
 
     //
@@ -95,3 +97,25 @@ enum class Color(val r: Int, val g: Int, val b: Int) { //枚举长两属性
 
     fun rgb() = (r * 256 + g) * 256 + b
 }
+
+/**
+ * 扩展属性(必须在类中)
+ * 必须为这个扩展属性定义 getter 函数，因为扩展属性没有 backing field
+ * 扩展属性在定义的时候，也会生成静态方法：
+ */
+val String.lastChar: Char get() = this.get(length - 1)
+val String.lastChar1: Char get() = 'g'
+
+/**
+ *  可变参数
+ *  java 中使用 ... 表示
+ *  kotlin 中使用 vararg表示
+ *   * 展开操作符
+ *  不使用 * 转化的java代码 printlnMsg((Object)value);
+ *  使用 * 后转化的java代码 printlnMsg(Arrays.copyOf(value, value.length));
+ */
+fun <T> listOf(vararg items: T): List<T> {
+    println(items.javaClass)//数组类型
+    return Arrays.asList<T>(*items);//* spread operator
+}
+

@@ -20,6 +20,15 @@ class Bowel<T>(private var item: T?) {
 
 }
 
+//食物
+internal open class Food
+
+//水果类
+internal open class Fruit : Food()
+
+//水果类
+internal class Apple : Fruit()
+
 internal class Pear : Fruit() {}
 
 fun main(args: Array<String>) {

@@ -1,15 +1,22 @@
 package com.jhao.kotlindemo.pkg1
 
+import java.awt.event.MouseAdapter
+import java.awt.event.MouseEvent
+import java.io.File
+import javax.swing.JList
+
 /**
  * @date   2020/4/6
  * @author JiangHao
- * @describe 这种方法声明的类是一个单例类，以前在Java中新建一个单例类，需要写一些模板代码，
+ * @describe object 关键字用法汇总
+ *           object className 这种方法声明的类是一个单例类，以前在Java中新建一个单例类，需要写一些模板代码，
  *           在Kotlin中一行代码就可以了(类名前加上object关键字)
  */
 object ObjectClass {
 
 }
 
+//1) companion object
 /**
  * companion object 为伴生对象，
  * 伴生体里面放的是一些静态成员：如静态常量、静态变量、静态方法
@@ -58,10 +65,31 @@ fun feed(a: IAnimal) {
     a.eat()
 }
 
+
 fun main(args: Array<String>) {
     //把类名当作参数直接传递
     //实际传递的是静态对象 ObjectKeywordTest4.Companion
     //每个类只会有一个伴生对象
     feed(ObjectKeyWordTest4.Companion)
     feed(ObjectKeyWordTest4)
+
+    //2) object : className 创建匿名内部类对象
+    var fileList: JList<File> = JList();
+    fileList.addMouseListener(object : MouseAdapter() {
+        override fun mouseClicked(e: MouseEvent?) {
+            super.mouseClicked(e)
+            println("click ...")
+        }
+
+        override fun mouseMoved(e: MouseEvent?) {
+            super.mouseMoved(e)
+            println("moved ...")
+        }
+    })
+    // object 关键字有 3 种用法：
+    // 定义单例类，格式为：object className
+    // 定义伴生对象，格式为：companion object
+    // 创建匿名内部类对象，格式为：object : className
 }
+
+
